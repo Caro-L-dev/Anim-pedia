@@ -8,7 +8,8 @@ function App() {
       selected: {}
     });
 
-    const apiUrl = "https://api.jikan.moe/v3";
+  const apiUrl = window.env.OMDb_API_KEY;
+  console.log("api url :" + apiUrl);
 
     const handleInput = (event) => {
       let searchQuery = event.target.value;
