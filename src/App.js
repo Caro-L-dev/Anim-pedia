@@ -1,5 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
-import Search from "./components/Search";
+import SearchBar from "./components/SearchBar";
 
 function App() {
     const [state, setState] = useState({
@@ -11,14 +12,20 @@ function App() {
   const apiUrl = window.env.OMDb_API_KEY;
   console.log("api url :" + apiUrl);
 
+  const search = (event) => {
+    if (event.key === "Enter") {
+      axios(apiUrl + "&s=" + state.searchQuery).then((data) => {
+        console.log(data);
+      });
+    }
+  }
+
     const handleInput = (event) => {
       let searchQuery = event.target.value;
 
       setState(previousState => {
         return {...previousState, searchQuery: searchQuery}
       });
-
-      console.log(state.searchQuery);
     }
 
   return (
@@ -27,7 +34,7 @@ function App() {
         <h1>Anime Database</h1>
       </header>
       <main>
-        <Search handleInput={handleInput} />
+        <SearchBar handleInput={handleInput} search={search} />
       </main>
     </div>
   );
