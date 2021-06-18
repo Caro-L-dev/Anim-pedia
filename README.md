@@ -39,3 +39,10 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### Dependencies
+
+#### Axios
+
+Axios is a simple promise based HTTP client for the browser and node.js.  
+Axios provides a simple to use library in a small package with a very extensible interface.
