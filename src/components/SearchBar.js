@@ -12,6 +12,6 @@ function SearchBar ({ handleInput, search }) {
             />
        </section>
     )
-}
+};
 
 export default SearchBar;

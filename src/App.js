@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
+import Results from "./components/Results";
 
 function App() {
     const [state, setState] = useState({
@@ -14,8 +15,12 @@ function App() {
 
   const search = (event) => {
     if (event.key === "Enter") {
-      axios(apiUrl + "&s=" + state.searchQuery).then((data) => {
-        console.log(data);
+      axios(apiUrl + "&s=" + state.searchQuery).then(({ data }) => {
+        let results = data.Search;
+
+        setState(previousState => {
+          return{ ...previousState, results: results }
+        })
       });
     }
   }
@@ -35,6 +40,7 @@ function App() {
       </header>
       <main>
         <SearchBar handleInput={handleInput} search={search} />
+        <Results results={state.results} />
       </main>
     </div>
   );
