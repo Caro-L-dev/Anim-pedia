@@ -1,9 +1,13 @@
 @use 'vars';
 
   .header {
-    padding: 4em 1em 0em;
+    padding: 2em 1em 0em;
     color: vars.$header-title-color;
     text-align: center;
+
+    background-image: url(https://images.alphacoders.com/596/596630.jpg);
+    background-position: 20%;
+    overflow: hidden;
   }
   
   .header__title {
@@ -18,5 +22,5 @@
   .header__subtitle {
     margin: 1em;
     font-style: italic;
-    color: vars.$header-subtitle-color;
+    color: vars.$header-subtitle-color; 
   }

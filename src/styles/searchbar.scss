@@ -13,11 +13,12 @@
     border-radius: 0.5em;
   
     color: vars.$searchbox-placeholder-color;
-    font-size: vars.$serachbox-title-font-size;
+    font-size: vars.$searchbox-font-size;
     font-weight: 300;
     cursor: pointer;
   
     transition: 0.4s ease-out;
+    
   }
 
 .searchbox:focus {
