@@ -5,13 +5,13 @@ import Results from "./components/Results";
 import Popup from "./components/Popup";
 
 function App() {
-    const [state, setState] = useState({
-      searchQuery: "",
-      results: [],
-      selected: {}
-    });
+  const [state, setState] = useState({
+    searchQuery: "",
+    results: [],
+    selected: {}
+  });
 
-  /*
+  
   const apiUrl = window.env.OMDb_API_KEY;
 
   const search = (event) => {
@@ -25,94 +25,48 @@ function App() {
       });
     }
   }
-  */
 
-  const apiUrl = window.env.JIKAN_API;
+  const handleInput = (event) => {
+    let searchQuery = event.target.value;
 
-  const search = (event) => {
-    if (event.key === "Enter") {
-      axios(apiUrl + state.searchQuery).then(({ data }) => {
-
-        /*   Result example OMDb
-        Poster: "https://m.media-amazon.com/images/M/MV5BMTE5NzIwMGUtYTE1MS00MDUxLTgyZjctOWVkZDAxM2M4ZWQ4XkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg"
-        Title: "Naruto: Shippûden"
-        Type: "series"
-        Year: "2007–2017"
-        imdbID: "tt0988824"
-        */
-
-        const jikanResults = data.results
-        let results = jikanResults.map(result => {
-          return {
-            Poster: result.image_url,
-            Title: result.title,
-            Type: result.type,
-            Year: result.start_date + " - " + result.end_date,
-            imdbID: "tt0988824"
-          }
-        })
-
-        /* Result example JIKAN
-        airing: false
-        end_date: "2007-02-08T00:00:00+00:00"
-        episodes: 220
-        image_url: "https://cdn.myanimelist.net/images/anime/13/17405.jpg?s=59241469eb470604a792add6fbe7cce6"
-        mal_id: 20
-        members: 2061755
-        rated: "PG-13"
-        score: 7.93
-        start_date: "2002-10-03T00:00:00+00:00"
-        synopsis: "Moments prior to Naruto Uzumaki's birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubi'..."
-        title: "Naruto"
-        type: "TV"
-        url: "https://myanimelist.net/anime/20/Naruto"
-        */
-
-        setState(previousState => {
-          return{ ...previousState, results: results }
-        })
-      });
-    }
+    setState(previousState => {
+      return {...previousState, searchQuery: searchQuery}
+    });
   }
 
-    const handleInput = (event) => {
-      let searchQuery = event.target.value;
+  const openPopup = id => {
+    axios(apiUrl + "&i=" + id).then(({ data }) => {
+      let result = data;
+
+      console.log(apiUrl + "&i=" + id)
+      console.log(result);
 
       setState(previousState => {
-        return {...previousState, searchQuery: searchQuery}
+        return { ...previousState, selected: result }
       });
-    }
+    });
+  }
 
-    const openPopup = id => {
-      axios(apiUrl + "&id" + id).then(({ data }) => {
-        let result = data;
+  const closePopup = () => {
+    setState(previousState => {
+      return { ...previousState, selected: {} }
+    });
+  }
 
-        console.log(result);
+  // {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false }
 
-        setState(previousState => {
-          return { ...previousState, selected: result }
-        });
-      });
-    }
-
-    const closePopup = () => {
-      setState(previousState => {
-        return { ...previousState, selected: {} }
-      });
-    }
-
-    return (
-      <div className="App">
-        <header className="header">
-          <h1 className="header__title">Anime Database</h1>
-        </header>
-        <main className="main">
-          <SearchBar handleInput={handleInput} search={search} />
-          <Results results={state.results} openPopup={openPopup} />
-          {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false }
-        </main>
-      </div>
-    );
+  return (
+    <div className="App">
+      <header className="header">
+        <h1 className="header__title">Anime Database</h1>
+      </header>
+      <main className="main">
+        <SearchBar handleInput={handleInput} search={search} />
+        <Results results={state.results} openPopup={openPopup} />
+        {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false }
+      </main>
+    </div>
+  );
 }
 
 export default App;
