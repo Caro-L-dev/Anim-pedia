@@ -21,16 +21,23 @@
 }
 
 .results .result__title {
-    color: vars.$color-light;
-    font-size: vars.$title-font-size;
+    color: vars.$result-title-color;
+    font-size: vars.$result-title-font-size;
     font-weight: 600;
     padding: 1em;
-    background: vars.$title-background-color;
+    background: vars.$result-title-background-color;
     flex: 1 1 100%;
     transition: 0.4s ease-out;
 }
 
 .results .result__title:hover {
-    background: vars.$color-light;
-    color: vars.$title-font-color-hover;
+    background: vars.$result-title-font-background-hover;
+    color: vars.$result-title-font-color-hover;
+}
+
+.result:hover {
+    transition: 0.4s ease-out;
+    border-radius: 1em;
+    border: 0.5em dashed  vars.$result-border-color;
+    background: vars.$result-background-behind;
 }

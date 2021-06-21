@@ -6,7 +6,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: vars.$title-background-color;
+    background-color: vars.$popup-title-background-color;
 
     overflow-y: scroll;
 }
@@ -17,17 +17,19 @@
     max-width: 90em;
     margin: 0 auto;
     padding: 2em;
-    color: vars.$color-light;
+    color: vars.$popup-content-text;
+ 
 }
 
 .popup__content__title {
     font-size: 28px;
     font-weight: 600;
+   
 }
 
 .popup__content__title__span {
     font-weight: 300;
-    font-size: vars.$title-font-size;
+    color: vars.$popup-content-type;
 }
 
 .popup__content__rating {
@@ -38,7 +40,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0em -1em 3em;
-    color: white;
+    color:vars.$popup-content-text;
 }
 
 .popup__content__synopsis__img {
@@ -58,8 +60,8 @@
     font-size: 18px;
     font-weight: 700;
 
-    background: #4484C4;
-    color: vars.$color-light;
+    background: vars.$popup-button-background-color;
+    color: vars.$popup-button-color;
     border-radius: 0.5em;
     border: none;
     outline: none;

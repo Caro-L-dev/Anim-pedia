@@ -1,13 +1,43 @@
-$background-color: #223343;
+$background-color: #264653;
+
+// HEADER
+
+$header-title-color: #e76f51;
+$header-strong-color:#e9c46a;
+$header-subtitle-color:#2a9d8f;
+
+// SEARCHBAR
+
+$searchbox-placeholder-color: #2a9d8f;
+$searchbox-focus-color: #2a9d8f;
+$serachbox-title-font-size: 20px;
+
+// COLORS
 
 $color-light: #FFF;
 $color-light-2: #EEE;
 
-$title-background-color:#445565;
-$title-font-color-hover: #223343;
-$title-font-size: 20px;
+// RESULT
 
-$searchbox-placeholder-color: #53565A;
-$searchbox-focus:  0em 0em 0.5em 0.2em #4484C4;
+$result-title-color:#264653;
+$result-title-background-color:#2a9d8f;
+$result-title-font-size: 20px;
 
+$result-title-font-background-hover: #264653;
+$result-title-font-color-hover: #2a9d8f;
 
+$result-background-behind: #264653;
+$result-border-color: #e9c46a;
+
+// POPUP
+
+//$popup-title-background-color:#335474;
+$popup-title-background-color:rgba(22, 20, 37, 0.9);;
+$popup-content-text: #e9c46a;
+$popup-content-type: #e76f51;
+
+// POPUP BUTTON
+
+$popup-button-background-color: #2a9d8f;
+$popup-button-color: #e9c46a;
+$popup-background-color-hover: #db7a2b;

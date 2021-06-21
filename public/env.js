@@ -179,7 +179,7 @@ window.env = {
   "npm_package_description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "npm_package_eslintConfig_extends_0": "react-app",
   "npm_package_eslintConfig_extends_1": "react-app/jest",
-  "npm_package_gitHead": "b7055e280f154b269414d29a302f935281b60216",
+  "npm_package_gitHead": "551d626d6aa4b7090ef7b8740401e788466c34e2",
   "npm_package_name": "anime-app",
   "npm_package_private": "true",
   "npm_package_readmeFilename": "README.md",
