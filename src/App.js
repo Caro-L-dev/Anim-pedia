@@ -27,8 +27,7 @@ function App() {
   }
   */
 
-  const apiUrl = window.env.JIKAN_API_KEY;
-  console.log("api url :" + apiUrl);
+  const apiUrl = window.env.JIKAN_API;
 
   const search = (event) => {
     if (event.key === "Enter") {
