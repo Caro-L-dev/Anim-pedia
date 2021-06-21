@@ -1,3 +1,5 @@
+// Remplace App.js par ce fichier si tu veux des films
+
 import axios from "axios";
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
@@ -12,34 +14,18 @@ function App() {
   });
 
   
-  const apiUrl = window.env.JIKAN_API;
+  const apiUrl = window.env.OMDb_API_KEY;
 
   const search = (event) => {
     if (event.key === "Enter") {
-      axios(apiUrl + "search/anime?q=" + state.searchQuery).then(({ data }) => {
-        
-       const jikanResults = data.results
-        let results = jikanResults.map(result => {
-          return {
-            Poster: result.image_url,
-            Title: result.title,
-            Type: result.type,
-            Status: result.status,
-            Score: result.score,
-            Mal_ID: result.mal_id,
-
-            Genre: result.genre,
-            Rated: result.rated,
-            Year: result.start_date + " - " + result.end_date
-          }
-        })
+      axios(apiUrl + "&s=" + state.searchQuery).then(({ data }) => {
+        let results = data.Search;
 
         setState(previousState => {
           return{ ...previousState, results: results }
         })
       });
-      
-    } 
+    }
   }
 
   const handleInput = (event) => {
@@ -51,21 +37,10 @@ function App() {
   }
 
   const openPopup = id => {
-    axios(apiUrl + "anime/" + id).then(({ data }) => {
-      let result = {
-        Poster: data.image_url,
-        Title: data.title,
-        Type: data.type,
-        Status: data.status,
-        Score: data.score,
-        Mal_ID: data.mal_id,
+    axios(apiUrl + "&i=" + id).then(({ data }) => {
+      let result = data;
 
-        Genre: data.genre,
-        Rated: data.rated,
-        Year: data.start_date + " - " + data.end_date
-        
-      };
-
+      console.log(apiUrl + "&i=" + id)
       console.log(result);
 
       setState(previousState => {
@@ -79,6 +54,8 @@ function App() {
       return { ...previousState, selected: {} }
     });
   }
+
+  // {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false }
 
   return (
     <div className="App">
