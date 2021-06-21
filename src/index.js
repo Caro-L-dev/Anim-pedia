@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.scss';
+import './styles/header.scss';
 import './styles/searchbar.scss';
 import './styles/results.scss';
 import './styles/popup.scss';

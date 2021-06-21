@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Header from './components/Header';
 import SearchBar from "./components/SearchBar";
 import Results from "./components/Results";
 import Popup from "./components/Popup";
@@ -82,9 +83,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="header">
-        <h1 className="header__title">Anime Database</h1>
-      </header>
+       <Header />
       <main className="main">
         <SearchBar handleInput={handleInput} search={search} />
         <Results results={state.results} openPopup={openPopup} />
