@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Results from "./components/Results";
+import Popup from "./components/Popup";
 
 function App() {
     const [state, setState] = useState({
@@ -12,7 +13,6 @@ function App() {
 
   /*
   const apiUrl = window.env.OMDb_API_KEY;
-  console.log("api url :" + apiUrl);
 
   const search = (event) => {
     if (event.key === "Enter") {
@@ -83,17 +83,36 @@ function App() {
       });
     }
 
-  return (
-    <div className="App">
-      <header className="header">
-        <h1 className="header__title">Anime Database</h1>
-      </header>
-      <main className="main">
-        <SearchBar handleInput={handleInput} search={search} />
-        <Results results={state.results} />
-      </main>
-    </div>
-  );
+    const openPopup = id => {
+      axios(apiUrl + "&id" + id).then(({ data }) => {
+        let result = data;
+
+        console.log(result);
+
+        setState(previousState => {
+          return { ...previousState, selected: result }
+        });
+      });
+    }
+
+    const closePopup = () => {
+      setState(previousState => {
+        return { ...previousState, selected: {} }
+      });
+    }
+
+    return (
+      <div className="App">
+        <header className="header">
+          <h1 className="header__title">Anime Database</h1>
+        </header>
+        <main className="main">
+          <SearchBar handleInput={handleInput} search={search} />
+          <Results results={state.results} openPopup={openPopup} />
+          {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false }
+        </main>
+      </div>
+    );
 }
 
 export default App;

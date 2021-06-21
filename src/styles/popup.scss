@@ -1,0 +1,74 @@
+@use'vars';
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: vars.$title-background-color;
+
+    overflow-y: scroll;
+}
+
+.popup__content {
+    display: block;
+    width: 100%;
+    max-width: 90em;
+    margin: 0 auto;
+    padding: 2em;
+    color: vars.$color-light;
+}
+
+.popup__content__title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.popup__content__title__span {
+    font-weight: 300;
+    font-size: vars.$title-font-size;
+}
+
+.popup__content__rating {
+    margin-bottom: 3em;
+}
+
+.popup__content__plot {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0em -1em 3em;
+}
+
+.popup__content__plot__img {
+    flex: 1 1 50%;
+    max-width: 30em;
+    padding: 0em 1em;
+}
+
+.popup__content__plot__text {
+    flex: 1 1 50%;
+    padding: 1em;
+}
+
+.popup__button--close {
+    display: inline-block;
+    padding: 1em 2em;
+    font-size: 18px;
+    font-weight: 700;
+
+    background: #4484C4;
+    color: vars.$color-light;
+    border-radius: 0.5em;
+    border: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+
+    transition: 0.4s ease-out;
+}
+
+.popup__button--close:hover {
+    background: vars.$background-color;
+}
+
