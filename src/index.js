@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
-import './styles/search.css';
+import './styles/index.scss';
+import './styles/searchbar.scss';
 import './styles/results.scss';
 import App from './App';
 

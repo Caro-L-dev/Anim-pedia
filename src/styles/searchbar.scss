@@ -1,0 +1,24 @@
+@use 'vars';
+
+.searchbox {
+    display: block;
+    width: 100%;
+    padding: 1em;
+  
+    border: none;
+    outline: none;
+    background: none;
+  
+    background-color: vars.$color-light-2;
+    border-radius: 0.5em;
+  
+    color: vars.$searchbox-placeholder-color;
+    font-size: vars.$title-font-size;
+    font-weight: 300;
+  
+    transition: 0.4s ease-out;
+  }
+
+.searchbox:focus {
+    box-shadow: vars.$searchbox-focus;
+}

@@ -85,10 +85,10 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Anime Database</h1>
+      <header className="header">
+        <h1 className="header__title">Anime Database</h1>
       </header>
-      <main>
+      <main className="main">
         <SearchBar handleInput={handleInput} search={search} />
         <Results results={state.results} />
       </main>
