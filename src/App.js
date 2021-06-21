@@ -28,10 +28,6 @@ function App() {
             Status: result.status,
             Score: result.score,
             Mal_ID: result.mal_id,
-
-            Genre: result.genre,
-            Rated: result.rated,
-            Year: result.start_date + " - " + result.end_date
           }
         })
 
@@ -56,14 +52,21 @@ function App() {
       let result = {
         Poster: data.image_url,
         Title: data.title,
+        JapTitle: data.title_japanese,
         Type: data.type,
         Status: data.status,
         Score: data.score,
         Mal_ID: data.mal_id,
 
-        Genre: data.genre,
-        Rated: data.rated,
-        Year: data.start_date + " - " + data.end_date
+        Episodes: data.episodes,
+        Duration: data.duration,
+        Synopsis: data.synopsis,
+        Rating: data.rating,
+        Trailer: data.trailer_url,
+
+        Genres: data.genre,
+        
+        Year: data.start_date + " - " + data.end_date,
         
       };
 
