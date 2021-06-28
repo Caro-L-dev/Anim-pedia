@@ -14,17 +14,21 @@
 .popup__content {
     display: block;
     width: 100%;
-    max-width: 90em;
-    margin: 0 auto;
-    padding: 2em;
+    max-width: 70em;
+    margin: 1em auto;
+    padding: 3em;
     color: vars.$popup-content-text;
- 
+    justify-content: center;
+    background: vars.$background-color;
+    border-radius: 0.5em;
 }
 
 .popup__content__title {
     font-size: 28px;
     font-weight: 600;
-   
+    text-transform: uppercase;
+    color: vars.$popup-content-text;
+    margin: 0em 10em 2em;
 }
 
 .popup__content__title__span {
@@ -32,43 +36,42 @@
     color: vars.$popup-content-type;
 }
 
-.popup__content__rating {
-    margin-bottom: 3em;
-}
+
 
 .popup__content__synopsis {
     display: flex;
     flex-wrap: wrap;
-    margin: 0em -1em 3em;
+    margin: 0em 2em 2em;
     color:vars.$popup-content-text;
 }
 
 .popup__content__synopsis__img {
-    flex: 1 1 50%;
     max-width: 30em;
     padding: 0em 1em;
 }
 
 .popup__content__synopsis__text {
-    flex: 1 1 50%;
     padding: 1em;
 }
 
 .popup__button--close {
-    display: inline-block;
-    padding: 1em 2em;
+    margin-left: 2em;
+    padding: 1em;
     font-size: 18px;
     font-weight: 700;
 
     background: vars.$popup-button-background-color;
     color: vars.$popup-button-color;
-    border-radius: 0.5em;
+    border-radius: 1em;
     border: none;
     outline: none;
     appearance: none;
     cursor: pointer;
 
     transition: 0.4s ease-out;
+
+    position: relative;
+    float: right;
 }
 
 .popup__button--close:hover {
@@ -78,4 +81,5 @@
 
 .trailer {
     width: 100%;
+    color: vars.$popup-content-text;
 }

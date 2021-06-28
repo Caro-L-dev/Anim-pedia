@@ -63,12 +63,14 @@ function App() {
         Synopsis: data.synopsis,
         Rating: data.rating,
         Trailer: data.trailer_url,
-
-        Genres: data.genre,
-        
-        Year: data.start_date + " - " + data.end_date,
-        
+        Genres: data.genres.map(genre => genre.name + " - "),
       };
+
+      if(data.aired.to) {
+        result.Year = data.aired.from.substring(0,10) + " - " + data.aired.to.substring(0,10)
+      } else {
+        result.Year = data.aired.from.substring(0,10)
+      }
 
       console.log(result);
 
@@ -88,6 +90,8 @@ function App() {
     <div className="App">
        <Header />
       <main className="main">
+      <p className="header__subtitle">~ Wikipedia anime version ~</p>
+      <p className="searchbox__infos">Example: One Piece, Dragon ball, Full metal alchemist, Haikyu...</p>
         <SearchBar handleInput={handleInput} search={search} />
         <Results results={state.results} openPopup={openPopup} />
         {(typeof state.selected.Title != "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false }

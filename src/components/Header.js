@@ -7,7 +7,7 @@ function Header() {
             <strong className="header__title__strong"> Anim'</strong>
             pedia
         </h1>
-        <p className="header__subtitle">~ Wikipedia anime version ~</p>
+       
     </header>
    )
 
