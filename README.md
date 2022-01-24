@@ -1,5 +1,8 @@
 # Anim'pedia
 
+![Anim'pedia_header](https://user-images.githubusercontent.com/65663844/150816930-c0497c61-aab2-42c6-a516-c1b4f55f27b9.JPG)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Create folder with:
